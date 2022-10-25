@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -16,29 +17,27 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Link
-              className="text-decoration-none text-white my-1 my-sm-0 mx-3 "
-              to="/home"
-            >
+              className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
+              to="/home">
               Home
             </Link>
             <Link
-              className="text-decoration-none text-white my-1 my-sm-0 mx-3 "
-              to="/courses"
-            >
+              className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
+              to="/courses">
               Courses
             </Link>
             <Link
-              className="text-decoration-none text-white my-1 my-sm-0 mx-3 "
-              to="/faq"
-            >
+              className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
+              to="/faq">
               FAQ
             </Link>
             <Link
-              className="text-decoration-none text-white my-1 my-sm-0 mx-3 "
-              to="/blog"
-            >
+              className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
+              to="/blog">
               Blog
             </Link>
+              <Link to="/login" className="text-decoration-none text-dark my-1 my-sm-0 mx-3 border
+              rounded py-2 px-3 bg-white">Login</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

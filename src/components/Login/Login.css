@@ -1,0 +1,15 @@
+.login {
+  background-image: linear-gradient(120deg, #3498db, #8e44ad);
+  height: 100vh;
+}
+
+.login-item {
+  width: 360px;
+  height: 500px;
+  padding: 80px 40px;
+}
+
+.btn-submit {
+  background-image: linear-gradient(120deg, #3498db, #8e44ad);
+    
+}
