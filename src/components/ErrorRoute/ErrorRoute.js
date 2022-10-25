@@ -1,9 +1,10 @@
 import React from 'react';
+import errorImage from "../../assets/error.png"
 
 const ErrorRoute = () => {
     return (
         <div>
-            404 page not found
+            <img src={errorImage} className="w-50 mx-auto d-flex" alt="" />
         </div>
     );
 };
