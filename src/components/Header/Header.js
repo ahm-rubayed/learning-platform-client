@@ -26,8 +26,7 @@ const Header = () => {
           <Nav className="ms-auto">
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/home"
-            >
+              to="/home">
               Home
             </Link>
             <Link

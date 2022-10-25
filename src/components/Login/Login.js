@@ -1,10 +1,11 @@
 import { signOut } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/auth.context';
 import "./Login.css"
 
 const Login = () => {
+    const [error, setError] = useState("")
     const {login} = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
@@ -22,9 +23,13 @@ const Login = () => {
             const user = result.user;
             console.log(user)
             form.reset()
+            setError('')
             navigate(from, {replace: true})
         })
-        .catch(error => console.error(error))
+        .catch(error => {
+            console.error(error)
+            setError(error.message)
+        })
     }
 
 
@@ -34,7 +39,8 @@ const Login = () => {
                 <h1 className='text-center'>Login</h1>
                 <form onSubmit={handleSubmit} className='mt-5'>
                 <input name="email" type="email" placeholder='Email' className='form-control d-inline-block w-100 my-3 border-0 border-bottom text-muted' />
-                <input name="password" type="password" placeholder='Password' className='form-control d-inline-block w-100 border-0 border-bottom text-muted' />
+                <input name="password" type="password" placeholder='Password' className='form-control d-inline-block w-100 border-0 border-bottom text-muted mb-3' />
+                <span className='text-danger'>{error}</span>
                 <input type="submit" value="Login" className='bg-none btn-submit mt-4 w-100 border-0 text-white py-2 rounded' />
                 </form>
                 <p className='mt-5'>Don't have an account? 

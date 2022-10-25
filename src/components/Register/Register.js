@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/auth.context';
 
 const Register = () => {
+    const [error, setError] = useState("")
     const {createUser, setUser} = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
@@ -16,10 +17,15 @@ const Register = () => {
         createUser(email, password)
         .then(result => {
             const user = result.user;
+            form.reset()
+            setError("")
             navigate(location?.state?.from?.pathname || "/")
             console.log(user)
         })
-        .catch(e => console.error(e))
+        .catch(e => {
+            console.error(e)
+            setError(e.message)
+        })
     }
 
     return (
@@ -28,10 +34,10 @@ const Register = () => {
             <h1 className='text-center'>Register</h1>
             <form onSubmit={handleSubmit} className='mt-5'>
             <input name="name" type="text" placeholder='Name' className='form-control d-inline-block w-100 my-3 border-0 border-bottom text-muted' />
-            <input name="email" type="email" placeholder='Email' className='form-control d-inline-block w-100 my-3 border-0 border-bottom text-muted' />
-            <input name="password" type="password" placeholder='Password' className='form-control d-inline-block w-100 border-0 border-bottom text-muted' />
+            <input name="email" type="email" placeholder='Email' className='form-control d-inline-block w-100 my-3 border-0 border-bottom text-muted' required />
+            <input name="password" type="password" placeholder='Password' className='form-control d-inline-block w-100 border-0 border-bottom text-muted mb-3' required/>
+            <span className='text-danger'>{error}</span>
             <input type="submit" value="Sign Up" className='bg-none btn-submit mt-4 w-100 border-0 text-white py-2 rounded' />
-
             </form>
             <p className='mt-5'>Already have an account?
                 <Link to="/login" className='fw-bold'> Login</Link>
