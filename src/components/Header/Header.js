@@ -3,13 +3,15 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
-import "./Header.css"
+import "./Header.css";
 
 const Header = () => {
   return (
     <Navbar className="navbar w-100" fixed="top" expand="lg">
       <Container>
-          <Link to="/" className="fw-bold text-decoration-none fs-3 text-white">Courseella</Link>
+        <Link to="/" className="fw-bold text-decoration-none fs-3 text-white">
+          Courseella
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
