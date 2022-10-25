@@ -15,8 +15,8 @@
 .home-item {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 20%;
+  transform: translate(-15%, -50%);
 }
 
 .desc-color {
@@ -25,4 +25,12 @@
 
 .btn-color {
   background-color: #e67e22 !important;
+}
+
+@media (min-width: 768px) {
+  .home-item {
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    color: red;
+  }
 }
