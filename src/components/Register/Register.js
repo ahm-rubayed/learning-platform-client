@@ -1,15 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/auth.context';
-// import "./Login.css"
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
-
-    // const [userInfo, setUserInfo] = useState({
-    //     email: "",
-    //     password: ""
-    // });
+    const {createUser, setUser} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -17,18 +13,10 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(email, password)
-
-        // createUser(userInfo.email, userInfo.password)
-        // .then(result => {
-        //     const user = result.user;
-        //     console.log(user)
-        // })
-        // .catch(error => console.error(error))
-
         createUser(email, password)
-        .then(r => {
-            const user = r.user;
+        .then(result => {
+            const user = result.user;
+            navigate(location?.state?.from?.pathname || "/")
             console.log(user)
         })
         .catch(e => console.error(e))
@@ -52,5 +40,6 @@ const Register = () => {
     </div>
     );
 };
+
 
 export default Register;

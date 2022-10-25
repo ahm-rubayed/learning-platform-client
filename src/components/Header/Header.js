@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/auth.context";
 import "./Header.css";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const logout = () => {
+    logOut()
+    .then(() => {})
+    .catch(e => console.error(e))
+  };
+
   return (
     <Navbar className="navbar w-100" fixed="top" expand="lg">
       <Container>
@@ -17,12 +26,14 @@ const Header = () => {
           <Nav className="ms-auto">
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/home">
+              to="/home"
+            >
               Home
             </Link>
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/courses">
+              to="/courses"
+            >
               Courses
             </Link>
             <Link
@@ -35,8 +46,19 @@ const Header = () => {
               to="/blog">
               Blog
             </Link>
-              <Link to="/login" className="text-decoration-none text-dark my-2 my-sm-0 mx-3 border
-              rounded py-2 px-3 bg-white">Login</Link>
+
+            {user?.uid ? (
+              <button onClick={logout} className="text-decoration-none text-dark my-2 my-sm-0 mx-3 border
+              rounded py-2 px-3 bg-white">Logout</button>
+            ) : (
+              <Link
+                to="/login"
+                className="text-decoration-none text-dark my-2 my-sm-0 mx-3 border
+              rounded py-2 px-3 bg-white"
+              >
+                Login
+              </Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

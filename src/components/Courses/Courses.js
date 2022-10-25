@@ -2,7 +2,7 @@ import React from 'react';
 
 const Courses = () => {
     return (
-        <div>
+        <div className='position-absolute top-50 left-50 translate-middle'>
             Courses
         </div>
     );
