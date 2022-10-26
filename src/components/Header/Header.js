@@ -11,8 +11,8 @@ const Header = () => {
 
   const logout = () => {
     logOut()
-    .then(() => {})
-    .catch(e => console.error(e))
+      .then(() => {})
+      .catch((e) => console.error(e));
   };
 
   return (
@@ -26,7 +26,8 @@ const Header = () => {
           <Nav className="ms-auto">
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/home">
+              to="/home"
+            >
               Home
             </Link>
             <Link
@@ -37,18 +38,25 @@ const Header = () => {
             </Link>
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/faq">
+              to="/faq"
+            >
               FAQ
             </Link>
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/blog">
+              to="/blog"
+            >
               Blog
             </Link>
 
             {user?.uid ? (
-              <button onClick={logout} className="text-decoration-none text-dark my-2 my-sm-0 mx-3 border
-              rounded py-2 px-3 bg-white">Logout</button>
+              <button
+                onClick={logout}
+                className="text-decoration-none text-dark my-2 my-sm-0 mx-3 border
+              rounded py-2 px-3 bg-white"
+              >
+                Logout
+              </button>
             ) : (
               <Link
                 to="/login"
@@ -57,6 +65,18 @@ const Header = () => {
               >
                 Login
               </Link>
+            )}
+            {user?.photoURL ? (
+              <div>
+                <img
+                  src={user.photoURL}
+                  className="rounded-circle w-50"
+                  alt=""
+                  title={user.displayName}
+                />
+              </div>
+            ) : (
+              <p></p>
             )}
           </Nav>
         </Navbar.Collapse>
