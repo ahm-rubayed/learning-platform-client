@@ -3,15 +3,16 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/auth.context";
 import "./Login.css";
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-  const { login, loginWithGoogle } = useContext(AuthContext);
+  const { login, handleLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
 
   const googleProvider = new GoogleAuthProvider();
+  const gitHubProvider = new GithubAuthProvider()
 
   const from = location.state?.from?.pathname || "/";
 
@@ -36,7 +37,7 @@ const Login = () => {
   };
 
   const handleGoogleSignIn = () => {
-    loginWithGoogle(googleProvider)
+    handleLogin(googleProvider)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -44,6 +45,16 @@ const Login = () => {
       })
       .catch((e) => console.error(e));
   };
+
+  const handleGithubSignIn = () => {
+    handleLogin(gitHubProvider)
+    .then(result => {
+        const user = result.user;
+        console.log(user)
+        navigate(from, { replace: true });
+    })
+    .catch(e => console.error(e))
+  }
 
   return (
     <div className="login">
@@ -77,7 +88,7 @@ const Login = () => {
           <FaGoogle className="me-3" />
           Google
         </button>
-        <button className="bg-none mt-2 w-100 border py-2 rounded-pill d-flex justify-content-center align-items-center">
+        <button onClick={handleGithubSignIn} className="bg-none mt-2 w-100 border py-2 rounded-pill d-flex justify-content-center align-items-center">
           <FaGithub className="me-3" />
           GitHub
         </button>

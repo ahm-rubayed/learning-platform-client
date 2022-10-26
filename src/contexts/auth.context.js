@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
     return signOut(auth)
   }
 
-  const loginWithGoogle = (provider) => {
+  const handleLogin = (provider) => {
     return signInWithPopup(auth, provider)
   }
 
@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, [])
 
-  const authInfo = { user, login, createUser, logOut, loginWithGoogle };
+  const authInfo = { user, login, createUser, logOut, handleLogin };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

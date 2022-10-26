@@ -26,56 +26,49 @@ const Header = () => {
           <Nav className="ms-auto">
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/home"
-            >
-              Home
+              to="/home">Home
             </Link>
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/courses"
-            >
-              Courses
+              to="/courses">Courses
             </Link>
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/faq"
-            >
-              FAQ
+              to="/faq">FAQ
             </Link>
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/blog"
-            >
-              Blog
+              to="/blog">Blog
             </Link>
 
             {user?.uid ? (
               <button
                 onClick={logout}
                 className="text-decoration-none text-dark my-2 my-sm-0 mx-3 border
-              rounded py-2 px-3 bg-white"
-              >
+              rounded py-2 px-3 bg-white">
                 Logout
               </button>
-            ) : (
+            ) : 
+            (
               <Link
                 to="/login"
                 className="text-decoration-none text-dark my-2 my-sm-0 mx-3 border
-              rounded py-2 px-3 bg-white"
-              >
+              rounded py-2 px-3 bg-white">
                 Login
               </Link>
             )}
+
             {user?.photoURL ? (
               <div>
                 <img
                   src={user.photoURL}
-                  className="rounded-circle w-50"
+                  className="rounded-circle login-image"
                   alt=""
                   title={user.displayName}
                 />
               </div>
-            ) : (
+            ) : 
+            (
               <p></p>
             )}
           </Nav>
