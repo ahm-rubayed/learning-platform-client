@@ -1,15 +1,28 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React from "react";
+import Card from "react-bootstrap/Card";
+import { useLoaderData } from "react-router-dom";
 
 const Checkout = () => {
-    const course = useLoaderData();
-    const {title} = course[0];
-    console.log(course)
-    return (
-     <div className="position-absolute top-50 start-50 translate-middle mt-5">
-        <h4>{title}</h4>
-     </div>
-    );
+  const course = useLoaderData();
+  const { title, image_url, price } = course[0];
+  const rating = course[0].rating.badge
+  console.log(course);
+  return (
+    <div className="position-absolute top-50 start-50 translate-middle mt-5">
+      <Card style={{ width: "50%", margin: "auto" }}>
+        <Card.Img variant="top" src={image_url} />
+        <Card.Body>
+          <Card.Title>{title}</Card.Title>
+          <Card.Text>
+            Price: ${price}
+          </Card.Text>
+          <Card.Text>
+            Rating: {rating}
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </div>
+  );
 };
 
 export default Checkout;
