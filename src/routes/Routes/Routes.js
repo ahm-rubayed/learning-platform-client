@@ -25,7 +25,7 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/courses",
-        loader: () => fetch("http://localhost:5000/courses"),
+        loader: () => fetch("https://courseella-server.vercel.app/courses"),
         element: <Courses></Courses>,
       },
       {
@@ -43,13 +43,13 @@ export const routes = createBrowserRouter([
       {
         path: "/course/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/course/${params.id}`),
+          fetch(`https://courseella-server.vercel.app/course/${params.id}`),
         element: <CourseDetails></CourseDetails>,
       },
       {
         path: "/checkout/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/checkout/${params.id}`),
+          fetch(`https://courseella-server.vercel.app/checkout/${params.id}`),
         element: (
           <PrivateRoute>
             <Checkout></Checkout>
