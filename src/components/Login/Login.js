@@ -9,39 +9,37 @@ const Login = () => {
   const { login, handleLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const location = useLocation();
 
   const googleProvider = new GoogleAuthProvider();
-  const gitHubProvider = new GithubAuthProvider()
+  const gitHubProvider = new GithubAuthProvider();
 
+  const location = useLocation()
   const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
-    const pass = form.password.value;
+    const password = form.password.value;
 
-    login(email, pass)
+    login(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
-        form.reset();
+        form.reset('');
         setError("");
-        navigate(from, { replace: true });
+        navigate(from, {replace: true});
       })
       .catch((error) => {
         console.error(error);
         setError(error.message)
-      });
+      })
   };
 
   const handleGoogleSignIn = () => {
     handleLogin(googleProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
-        navigate(from, { replace: true });
+        navigate("/");
       })
       .catch((e) => console.error(e));
   };
@@ -51,7 +49,7 @@ const Login = () => {
     .then(result => {
         const user = result.user;
         console.log(user)
-        navigate(from, { replace: true });
+        navigate("/");
     })
     .catch(e => console.error(e))
   }
@@ -73,7 +71,6 @@ const Login = () => {
             placeholder="Password"
             className="form-control d-inline-block w-100 border-0 border-bottom text-muted mb-3"
           />
-
           <span className="text-danger">{error}</span>
           <input
             type="submit"

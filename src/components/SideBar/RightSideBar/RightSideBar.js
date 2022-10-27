@@ -1,6 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import Course from "../../../Course/Course";
+import Course from "../../Course/Course";
 
 const RightSideBar = () => {
   const courses = useLoaderData();

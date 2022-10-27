@@ -6,7 +6,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 
 const Register = () => {
   const [error, setError] = useState("");
-  const { createUser, loginWithGoogle } = useContext(AuthContext);
+  const { createUser, handleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -24,7 +24,6 @@ const Register = () => {
         form.reset();
         setError("");
         navigate(location?.state?.from?.pathname || "/");
-        console.log(user);
       })
       .catch((e) => {
         console.error(e);
@@ -33,7 +32,7 @@ const Register = () => {
   };
 
   const handleGoogleSignIn = () => {
-    loginWithGoogle(googleProvider)
+    handleLogin(googleProvider)
       .then((result) => {
         const user = result.user;
         console.log(user);
