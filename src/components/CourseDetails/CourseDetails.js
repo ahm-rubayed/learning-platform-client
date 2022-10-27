@@ -16,7 +16,7 @@ const CourseDetails = () => {
   const handlePrint = useReactToPrint({
     content: () => componenetRef.current,
     documentTitle: "course",
-    onAfterPrint: () => alert("Print success")
+    onAfterPrint: () => console.log("Print success")
   })
   
   return (
