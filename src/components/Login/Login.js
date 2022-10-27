@@ -39,7 +39,7 @@ const Login = () => {
     handleLogin(googleProvider)
       .then((result) => {
         const user = result.user;
-        navigate("/");
+        navigate(from, {replace: true});
       })
       .catch((e) => console.error(e));
   };
@@ -49,7 +49,7 @@ const Login = () => {
     .then(result => {
         const user = result.user;
         console.log(user)
-        navigate("/");
+        navigate(from, {replace: true});
     })
     .catch(e => console.error(e))
   }
