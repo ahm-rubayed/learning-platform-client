@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -8,6 +8,7 @@ import "./Header.css";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [darkMode, setDarkMode] = useState(false);
 
   const logout = () => {
     logOut()
@@ -21,39 +22,48 @@ const Header = () => {
         <Link to="/" className="fw-bold text-decoration-none fs-3 text-white">
           Courseella
         </Link>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle className="text-white" aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/home">Home
+              to="/home"
+            >
+              Home
             </Link>
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/courses">Courses
+              to="/courses"
+            >
+              Courses
             </Link>
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/faq">FAQ
+              to="/faq"
+            >
+              FAQ
             </Link>
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/blog">Blog
+              to="/blog"
+            >
+              Blog
             </Link>
 
             {user?.uid ? (
               <button
                 onClick={logout}
                 className="text-decoration-none text-dark my-2 my-sm-0 mx-3 border
-              rounded py-2 px-3 bg-white">
+              rounded py-2 px-3 bg-white"
+              >
                 Logout
               </button>
-            ) : 
-            (
+            ) : (
               <Link
                 to="/login"
                 className="text-decoration-none text-dark my-2 my-sm-0 mx-3 border
-              rounded py-2 px-3 bg-white">
+              rounded-pill py-2 px-3 bg-white"
+              >
                 Login
               </Link>
             )}
@@ -67,10 +77,20 @@ const Header = () => {
                   title={user.displayName}
                 />
               </div>
-            ) : 
-            (
+            ) : (
               <p></p>
             )}
+            <div>
+              <div className="switch-checkbox">
+                <label className="switch">
+                  <input
+                    type="checkbox"
+                    onChange={() => setDarkMode(!darkMode)}
+                  />
+                  <span className="slider round"></span>
+                </label>
+              </div>
+            </div>
           </Nav>
         </Navbar.Collapse>
       </Container>

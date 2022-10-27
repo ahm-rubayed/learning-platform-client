@@ -8,9 +8,12 @@ const Register = () => {
   const [error, setError] = useState("");
   const { createUser, handleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
-  const location = useLocation();
 
   const googleProvider = new GoogleAuthProvider();
+
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,10 +26,10 @@ const Register = () => {
         const user = result.user;
         form.reset();
         setError("");
-        navigate(location?.state?.from?.pathname || "/");
+        navigate(from, {replace: true});
+
       })
       .catch((e) => {
-        console.error(e);
         setError(e.message);
       });
   };
@@ -35,10 +38,13 @@ const Register = () => {
     handleLogin(googleProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
-        navigate(location?.state?.from?.pathname || "/");
+        setError("")
+        navigate(from, {replace: true});
       })
-      .catch((e) => console.error(e));
+      .catch((e) =>{
+        console.error(e)
+        setError(e.message)
+      });
   };
 
   return (
@@ -64,10 +70,7 @@ const Register = () => {
             type="password"
             placeholder="Password"
             className="form-control d-inline-block w-100 border-0 border-bottom text-muted mb-3"
-            required
-          />
-
-          <span className="text-danger">{error}</span>
+            required/>
           <input
             type="submit"
             value="Sign Up"
@@ -85,6 +88,8 @@ const Register = () => {
           <FaGithub className="me-3" />
           GitHub
         </button>
+        <span className="text-danger d-inline-block mt-3">{error}</span>
+
         <p className="mt-5">
           Already have an account?
           <Link to="/login" className="fw-bold">

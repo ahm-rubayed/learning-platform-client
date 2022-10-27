@@ -40,8 +40,13 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         navigate(from, {replace: true});
+        setError("");
       })
-      .catch((e) => console.error(e));
+      .catch((e) => {
+        console.error(e)
+        setError(e.message)
+      });
+
   };
 
   const handleGithubSignIn = () => {
@@ -50,6 +55,7 @@ const Login = () => {
         const user = result.user;
         console.log(user)
         navigate(from, {replace: true});
+        setError(error.message)
     })
     .catch(e => console.error(e))
   }
@@ -63,20 +69,16 @@ const Login = () => {
             name="email"
             type="email"
             placeholder="Email"
-            className="form-control d-inline-block w-100 my-3 border-0 border-bottom text-muted"
-          />
+            className="form-control d-inline-block w-100 my-3 border-0 border-bottom text-muted"/>
           <input
             name="password"
             type="password"
             placeholder="Password"
-            className="form-control d-inline-block w-100 border-0 border-bottom text-muted mb-3"
-          />
-          <span className="text-danger">{error}</span>
+            className="form-control d-inline-block w-100 border-0 border-bottom text-muted mb-3"/>
           <input
             type="submit"
             value="Login"
-            className="bg-none btn-submit mt-5 w-100 border-0 text-white py-2 rounded"
-          />
+            className="bg-none btn-submit mt-5 w-100 border-0 text-white py-2 rounded"/>
         </form>
 
         <button
@@ -89,6 +91,8 @@ const Login = () => {
           <FaGithub className="me-3" />
           GitHub
         </button>
+
+        <span className="text-danger mt-3 d-inline-block">{error}</span>
 
         <p className="mt-5">
           Don't have an account?
