@@ -8,12 +8,13 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 const Login = () => {
   const { login, handleLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
+
   const navigate = useNavigate();
 
   const googleProvider = new GoogleAuthProvider();
   const gitHubProvider = new GithubAuthProvider();
 
-  const location = useLocation()
+  const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (event) => {
@@ -25,40 +26,39 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         const user = result.user;
-        form.reset('');
+        console.log(user);
+        form.reset("");
         setError("");
-        navigate(from, {replace: true});
+        navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.error(error);
-        setError(error.message)
-      })
+        setError(error.message);
+      });
   };
 
   const handleGoogleSignIn = () => {
     handleLogin(googleProvider)
       .then((result) => {
         const user = result.user;
-        navigate(from, {replace: true});
+        console.log(user);
+        navigate(from, { replace: true });
         setError("");
       })
       .catch((e) => {
-        console.error(e)
-        setError(e.message)
+        setError(e.message);
       });
-
   };
 
   const handleGithubSignIn = () => {
     handleLogin(gitHubProvider)
-    .then(result => {
+      .then((result) => {
         const user = result.user;
-        console.log(user)
-        navigate(from, {replace: true});
-        setError(error.message)
-    })
-    .catch(e => console.error(e))
-  }
+        console.log(user);
+        navigate(from, { replace: true });
+        setError(error.message);
+      })
+      .catch((e) => console.error(e));
+  };
 
   return (
     <div className="login">
@@ -83,11 +83,15 @@ const Login = () => {
 
         <button
           onClick={handleGoogleSignIn}
-          className="bg-none mt-4 w-100 border py-2 rounded-pill d-flex justify-content-center align-items-center">
+          className="bg-none mt-4 w-100 border py-2 rounded-pill d-flex justify-content-center 
+          align-items-center">
           <FaGoogle className="me-3" />
           Google
         </button>
-        <button onClick={handleGithubSignIn} className="bg-none mt-2 w-100 border py-2 rounded-pill d-flex justify-content-center align-items-center">
+        <button
+          onClick={handleGithubSignIn}
+          className="bg-none mt-2 w-100 border py-2 rounded-pill d-flex justify-content-center
+          align-items-center">
           <FaGithub className="me-3" />
           GitHub
         </button>
@@ -97,7 +101,6 @@ const Login = () => {
         <p className="mt-5">
           Don't have an account?
           <Link to="/register" className="fw-bold">
-            {" "}
             Sign Up
           </Link>
         </p>

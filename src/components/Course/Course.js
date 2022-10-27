@@ -4,8 +4,8 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 
 const Course = (course) => {
-    const {title, image_url, details, courses_id} = course.course;
-    console.log(courses_id)
+  const { title, image_url, details, courses_id } = course.course;;
+
   return (
     <div className="col mt-5">
       <Card style={{ width: "20rem", height: "100%", margin: "auto" }}>
@@ -13,14 +13,21 @@ const Course = (course) => {
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           <Card.Text>
-            {details.length > 250 ?
-        <>{details.slice(0, 170) + "..."}<Link to={`/course/${courses_id}`}>Read More</Link></>    
-        :
-        details
-        }
+            {details.length > 250 ? (
+              <>
+                {details.slice(0, 170) + "..."}
+                <Link to={`/course/${courses_id}`}>Read More</Link>
+              </>
+            ) : (
+              details
+            )}
           </Card.Text>
           <Button className="btn-color">
-            <Link className="text-white text-decoration-none" to={`/course/${courses_id}`}>Course Details</Link>
+            <Link
+              className="text-white text-decoration-none"
+              to={`/course/${courses_id}`}>
+              Course Details
+            </Link>
           </Button>
         </Card.Body>
       </Card>

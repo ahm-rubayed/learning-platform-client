@@ -18,52 +18,48 @@ const Header = () => {
 
   return (
     <Navbar className="navbar w-100" fixed="top" expand="lg">
-      <Container>
+      <Container className="">
         <Link to="/" className="fw-bold text-decoration-none fs-3 text-white">
           Courseella
         </Link>
-        <Navbar.Toggle className="text-white" aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+          className="text-white"
+          aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
+          <Nav className="ms-auto align-items-center">
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/home"
-            >
+              to="/home">
               Home
             </Link>
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/courses"
-            >
+              to="/courses">
               Courses
             </Link>
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/faq"
-            >
+              to="/faq">
               FAQ
             </Link>
             <Link
               className="text-decoration-none text-white my-1 my-sm-0 mx-3 py-2"
-              to="/blog"
-            >
+              to="/blog">
               Blog
             </Link>
 
             {user?.uid ? (
               <button
                 onClick={logout}
-                className="text-decoration-none text-dark my-2 my-sm-0 mx-3 border
-              rounded py-2 px-3 bg-white"
-              >
+                className="text-decoration-none text-white my-2
+                my-sm-0 mx-3 bg-dark w-25 mt-0 py-2 rounded-3">
                 Logout
               </button>
             ) : (
               <Link
                 to="/login"
-                className="text-decoration-none text-dark my-2 my-sm-0 mx-3 border
-              rounded-pill py-2 px-3 bg-white"
-              >
+                className="text-decoration-none text-white my-2 my-sm-0 mx-3 bg-dark
+                w-25 mt-0 py-2 rounded-3 text-center px-4">
                 Login
               </Link>
             )}
@@ -72,12 +68,12 @@ const Header = () => {
               <div>
                 <img
                   src={user.photoURL}
-                  className="rounded-circle login-image"
+                  className="rounded-circle img-thumbnail mt-2 mt-xl-0"
                   alt=""
-                  title={user.displayName}
-                />
-              </div>
-            ) : (
+                  title={user.displayName}/>
+              </div>)
+              :
+              (
               <p></p>
             )}
             <div>
@@ -85,8 +81,7 @@ const Header = () => {
                 <label className="switch">
                   <input
                     type="checkbox"
-                    onChange={() => setDarkMode(!darkMode)}
-                  />
+                    onChange={() => setDarkMode(!darkMode)}/>
                   <span className="slider round"></span>
                 </label>
               </div>
