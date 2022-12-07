@@ -1,0 +1,94 @@
+[debug] [2022-12-07T04:41:04.637Z] ----------------------------------------------------------------------
+[debug] [2022-12-07T04:41:04.646Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\rubay\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-12-07T04:41:04.649Z] CLI Version:   11.15.0
+[debug] [2022-12-07T04:41:04.650Z] Platform:      win32
+[debug] [2022-12-07T04:41:04.650Z] Node Version:  v18.9.0
+[debug] [2022-12-07T04:41:04.657Z] Time:          Wed Dec 07 2022 10:41:04 GMT+0600 (East Kazakhstan Time)
+[debug] [2022-12-07T04:41:04.658Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-07T04:41:04.664Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-12-07T04:41:05.107Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-07T04:41:05.108Z] > authorizing via signed-in user (ahmedrubayed123@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  F:\PH batch-6\coursella\courseella-client
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[debug] [2022-12-07T04:41:05.911Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-12-07T04:41:05.912Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-12-07T04:41:14.522Z] Using project from CLI flag: assignment-10-21db1
+[debug] [2022-12-07T04:41:14.524Z] > refreshing access token with scopes: []
+[debug] [2022-12-07T04:41:14.527Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-12-07T04:41:14.528Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-07T04:41:14.830Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-12-07T04:41:14.830Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-07T04:41:14.842Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/assignment-10-21db1 [none]
+[debug] [2022-12-07T04:41:15.531Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/assignment-10-21db1 403
+[debug] [2022-12-07T04:41:15.531Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/assignment-10-21db1 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-12-07T04:41:15.532Z] HTTP Error: 403, The caller does not have permission
+[debug] [2022-12-07T04:41:15.859Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\rubay\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\rubay\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project assignment-10-21db1. Please make sure the project exists and your account has permission to access it.
+[debug] [2022-12-07T04:41:33.689Z] ----------------------------------------------------------------------
+[debug] [2022-12-07T04:41:33.692Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\rubay\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-12-07T04:41:33.692Z] CLI Version:   11.15.0
+[debug] [2022-12-07T04:41:33.693Z] Platform:      win32
+[debug] [2022-12-07T04:41:33.693Z] Node Version:  v18.9.0
+[debug] [2022-12-07T04:41:33.694Z] Time:          Wed Dec 07 2022 10:41:33 GMT+0600 (East Kazakhstan Time)
+[debug] [2022-12-07T04:41:33.694Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-07T04:41:33.803Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-07T04:41:33.804Z] > authorizing via signed-in user (ahmedrubayed123@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  F:\PH batch-6\coursella\courseella-client
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-12-07T04:41:44.361Z] Using project from CLI flag: assignment-10-21db1
+[debug] [2022-12-07T04:41:44.366Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/assignment-10-21db1 [none]
+[debug] [2022-12-07T04:41:45.953Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/assignment-10-21db1 403
+[debug] [2022-12-07T04:41:45.953Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/assignment-10-21db1 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-12-07T04:41:45.954Z] HTTP Error: 403, The caller does not have permission
+[debug] [2022-12-07T04:41:46.227Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\rubay\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\rubay\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project assignment-10-21db1. Please make sure the project exists and your account has permission to access it.

@@ -92,3 +92,9 @@ input:checked + .slider:before {
 .switch-checkbox {
   padding: 10px;
 }
+
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+}

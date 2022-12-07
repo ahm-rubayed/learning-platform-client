@@ -8,14 +8,14 @@ const Course = (course) => {
 
   return (
     <div className="col mt-5">
-      <Card style={{ width: "20rem", height: "100%", margin: "auto" }}>
+      <Card className="border-0 shadow" style={{ width: "20rem", height: "100%", margin: "auto" }}>
         <Card.Img variant="top" src={image_url} />
         <Card.Body>
           <Card.Title>{title}</Card.Title>
-          <Card.Text>
-            {details.length > 250 ? (
+          <Card.Text className="text-muted">
+            {details.length > 100 ? (
               <>
-                {details.slice(0, 170) + "..."}
+                {details.slice(0, 100) + "..."}
                 <Link to={`/course/${courses_id}`}>Read More</Link>
               </>
             ) : (

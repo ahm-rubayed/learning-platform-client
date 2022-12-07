@@ -49,17 +49,17 @@ const Header = () => {
             </Link>
 
             {user?.uid ? (
-              <button
+              <Link
                 onClick={logout}
                 className="text-decoration-none text-white my-2
-                my-sm-0 mx-3 bg-dark w-25 mt-0 py-2 rounded-3">
+                my-sm-0 mx-3 mt-0 py-2">
                 Logout
-              </button>
+              </Link>
             ) : (
               <Link
                 to="/login"
-                className="text-decoration-none text-white my-2 my-sm-0 mx-3 bg-dark
-                w-25 mt-0 py-2 rounded-3 text-center px-4">
+                className="text-decoration-none text-white my-2 my-sm-0 mx-3
+                 mt-0 py-2 text-center px-4">
                 Login
               </Link>
             )}
@@ -68,7 +68,7 @@ const Header = () => {
               <div>
                 <img
                   src={user.photoURL}
-                  className="rounded-circle img-thumbnail mt-2 mt-xl-0"
+                  className="rounded-circle avatar mt-2 mt-xl-0"
                   alt=""
                   title={user.displayName}/>
               </div>)
